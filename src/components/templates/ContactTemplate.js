@@ -34,7 +34,7 @@ function ContactTemplate() {
     if (form == null) {
         localStorage.setItem("ContactForm", JSON.stringify(ContactFormJson))
     } else {
-        setContactForm(JSON.parse(contact));
+        setContactForm(JSON.parse(form));
     }
       
   }, [])

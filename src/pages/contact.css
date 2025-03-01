@@ -35,3 +35,36 @@
     border-radius: 60px;
     margin: auto 20px;
 }
+.contact .form .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    
+}
+.contact .form .box input{
+    width:350px;
+    height: 25px;
+    margin: 0 25px 25px 25px;
+    border: 0px;
+    padding: 25px;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 25px;
+}
+.contact .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1000px;
+    margin: auto;
+}
+.contact .form textarea{
+    width: 750px;
+    height: 200px;
+    border: 0px;
+    padding: 25px;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 25px;
+}
