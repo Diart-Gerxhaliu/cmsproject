@@ -1,0 +1,35 @@
+[
+    {
+        "aboutImage": "https://images.pexels.com/photos/1181395/pexels-photo-1181395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "aboutHead": "About Us",
+        "aboutDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad earum autem laboriosam asperiores dignissimos at tempore",
+        "aboutList": [
+            {   
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"business applications through"
+            },
+            {
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"procedures whereas processes"
+            },
+            {
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"business applications through"
+            },
+            {
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"revolutionary catalysts for chang"
+            },
+            {
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"catalysts for chang the Seamlessly"
+            },
+            {
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
+                "comp":"business applications through"
+            }
+        ],
+        "buttonDesc": "Read More"
+    }
+    
+]

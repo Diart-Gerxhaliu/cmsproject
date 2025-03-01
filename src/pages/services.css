@@ -1,0 +1,42 @@
+.services .banner .row div:last-child button {
+    display: none;
+}
+
+.services .banner .row button{
+    margin-left: 70%;
+    transform: translate(-50%,-50%);
+    width: 125px;
+}
+.services .galery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 325px;
+    position: relative;
+}
+.services .imagesGalery{
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.services .galery img{
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+}
+.services .galery h1{
+    position: absolute;
+    bottom: 0%;
+    left: 12.5%;
+    background-color: white;
+    width: 75%;
+    height: 15%;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}

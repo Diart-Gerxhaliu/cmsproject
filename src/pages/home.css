@@ -1,0 +1,79 @@
+.abouthome{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .abouthome .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+  }
+  
+  .home .list img{
+    width: 20px;
+  }
+  .aboutList .list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5%;
+    width: 50%;
+  }
+  .home .list {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    
+  }
+  
+  .home .list .listComp{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .servicesHome{
+    margin-top: 100px;
+  }
+  .servicesHome .list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+    height: 500px;
+  }
+  .servicesHome .list .listComp  {
+    width: 30%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .servicesHome .list img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .servicesHome .list li{
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    height: 50px;
+    width: 75%;
+    position: absolute;
+    bottom: 5%;
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    left: 12.5%;
+    color: black;
+    font-size: 25px;
+    border-radius: 15px;
+    
+  }
+  
