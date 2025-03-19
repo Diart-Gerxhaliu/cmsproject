@@ -7,6 +7,7 @@ function Login() {
   function submitForm() {
     if (name === "admin" && password === "admin") {
       alert("Welcome, Admin!");
+      localStorage.setItem("admin", true);
     } else {
       alert("Invalid credentials");
     }
