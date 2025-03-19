@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -15,7 +15,18 @@ function Dashboard() {
   let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner"))||[]);
   let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout"))||[]); 
 
+  let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
+  let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery"))||[]); 
+
+
+  let [feedback, setFeedback] = useState(JSON.parse(localStorage.getItem("ContactForm")||[]));
+
   let LG = JSON.parse(localStorage.getItem("Logo"));
+
+
+  useEffect(() => {
+    localStorage.setItem("ServicesGalery", JSON.stringify(servicesGalery));
+  }, [servicesGalery]);
 
   if (dark) {
     document.body.style.background= "black";
@@ -83,7 +94,10 @@ function Dashboard() {
           </h1>
         </div>
         <div className="group">
-          <h1 onClick={() => setSelectedMenu("Users")}>Users</h1>
+          <h1 onClick={() => {
+            setSelectedMenu("Users");
+            setData("users")
+            }}>Users</h1>
           <h1
             onClick={() => {
               setSelectedMenu("Settings");
@@ -175,7 +189,7 @@ function Dashboard() {
         )}
        
 
-            {data === "pages" && (
+        {data === "pages" && (
               <>
                 <div className='row'>
                   <button 
@@ -385,15 +399,14 @@ function Dashboard() {
                       ))}
                   </div>
                 )}
-              </>
-            )}
-
-            {page === "About" && (
+                {page === "About" && (
               <>
                 {aboutBanner && (
                     <>
                     {aboutBanner.map((gal,index)=>{
-                      return<><input 
+                      return<div className="aboutBanner">
+                        <h1>Banner</h1>
+                      <input 
                       key={index}
                       type='text' 
                       name='change' 
@@ -427,14 +440,219 @@ function Dashboard() {
                         localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
                       }}/>
                       
-                      </>
+                      </div>
                     })}
+                    {aboutAbout.map((gal,index)=>{
+                      return<div className="aboutAbout">
+                        <h1>About</h1>
+                        <input 
+                        key={index}
+                        type='text' 
+                        name='change' 
+                        value={gal.aboutImage} 
+                        onChange={(e)=>{
+                          const newAboutBanner = [...aboutBanner];
+                          newAboutBanner[index].aboutImage = e.target.value;
+                          setAboutAbout(newAboutBanner);
+                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                        }}/>
+                        <input 
+                        key={index}
+                        type='text' 
+                        name='change' 
+                        value={gal.aboutHead} 
+                        onChange={(e)=>{
+                          const newAboutBanner = [...aboutBanner];
+                          newAboutBanner[index].aboutHead = e.target.value;
+                          setAboutAbout(newAboutBanner);
+                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                        }}/>
+                        <input 
+                        key={index}
+                        type='text' 
+                        name='change' 
+                        value={gal.aboutDesc} 
+                        onChange={(e)=>{
+                          const newAboutBanner = [...aboutBanner];
+                          newAboutBanner[index].aboutDesc = e.target.value;
+                          setAboutAbout(newAboutBanner);
+                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                        }}/>
+                        {gal.aboutList.map((serie,i)=>{
+                          return <>
+                            <input 
+                              key={index}
+                              type='text' 
+                              name='change' 
+                              value={serie.image} 
+                              onChange={(e)=>{
+                                const newAboutBanner = [...aboutBanner];
+                                newAboutBanner[index].image = e.target.value;
+                                setAboutAbout(newAboutBanner);
+                                localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                              }}/>
+                          </>
+                        })}
+                        <input 
+                        key={index}
+                        type='text' 
+                        name='change' 
+                        value={gal.buttonDesc} 
+                        onChange={(e)=>{
+                          const newAboutBanner = [...aboutBanner];
+                          newAboutBanner[index].buttonDesc = e.target.value;
+                          setAboutAbout(newAboutBanner);
+                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                        }}/>
+                      </div>
+                    })
+                    }
                     </>
                   
                 )}
-              </>
-            )}
 
+                
+              </>
+                )}
+                {page === "Services" && (
+                  <>
+                    {servicesBanner && (
+                        <>
+                        {servicesBanner.map((gal,index)=>{
+                          return<div className="servicesBanner">
+                            <h1>Banner</h1>
+                            <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={gal.imageBack} 
+                            onChange={(e)=>{
+                              const newServicesBanner = [...servicesBanner];
+                              newServicesBanner[index].imageBack = e.target.value;
+                              setServicesBanner(newServicesBanner);
+                              localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
+                            }}/>
+                            <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={gal.bannerHead} 
+                            onChange={(e)=>{
+                              const newServicesBanner = [...servicesBanner];
+                              newServicesBanner[index].bannerHead = e.target.value;
+                              setServicesBanner(newServicesBanner);
+                              localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
+                            }}/>
+                            <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={gal.bannerButton1} 
+                            onChange={(e)=>{
+                              const newServicesBanner = [...servicesBanner];
+                              newServicesBanner[index].bannerButton1 = e.target.value;
+                              setServicesBanner(newServicesBanner);
+                              localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
+                            }}/>
+                          </div>
+                        })
+                        }
+                      <div className='servicesGalery'>
+                      <h1>Galery</h1>
+                      {servicesGalery.map((gal,index)=>{
+                        return <div>
+                          <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={gal.galery} 
+                            onChange={(e)=>{
+                              const newServicesGalery = [...servicesGalery];
+                              newServicesGalery[index].galery = e.target.value;
+                              setServicesGalery(newServicesGalery);
+                              localStorage.setItem("ServicesGalery", JSON.stringify(newServicesGalery))
+                            }}/>
+                            <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={gal.text} 
+                            onChange={(e)=>{
+                              const newServicesGalery = [...servicesGalery];
+                              newServicesGalery[index].text = e.target.value;
+                              setServicesGalery(newServicesGalery);
+                              localStorage.setItem("ServicesGalery", JSON.stringify(newServicesGalery))
+                            }}/>
+                        </div>
+                        
+                      })}
+                      </div>
+
+                      </>
+                      
+                    )}
+
+                    
+                  </>
+                )}
+              </>
+        )}
+
+        {data === "feedback" && (
+          <div className="feedback">
+            {feedback.length > 0 ? (
+              feedback.map((gal, index) => (
+                <div className="card" key={index}>
+                  <h1>{gal.name}</h1>
+                    <h2>{gal.subject}</h2>
+                  <div className="row">
+                    <h2>{gal.phone}</h2>
+                    <h2>{gal.email}</h2>
+                  </div>
+                  <p>{gal.message}</p>
+                </div>
+              ))
+            ) : (
+              <p className="noFeedback">No one said shi</p>
+            )}
+          </div>
+        )}
+
+        {data === "users" && (
+          ""
+        )}
+
+        {data === "posts" && (
+          <div className='posts'>
+          <div className='postsGalery'>
+            {servicesGalery.map((gal,index)=>{
+              return <div className="card" key={index}>
+                
+                    <img src={gal.galery} alt='' />
+                    <h1>{gal.text}</h1>
+                    <button type='button'
+                    onClick={()=>{
+                      setServicesGalery(servicesGalery.filter((_, i) => i !== index));
+                    }}>
+                      Remove
+                    </button>
+
+
+                  </div>
+              
+                        
+            })}
+            </div>
+            <button type='button' id="addButton" onClick={()=>{
+                  const newItem = {
+                    galery: "https://images.pexels.com/photos/1546912/pexels-photo-1546912.jpeg", 
+                    text: `UI/UX design`,
+                  };
+                  setServicesGalery([...servicesGalery, newItem]);
+            }}>Add new+</button>
+          </div>
+        )}
+            
 
       </div>
     </div>

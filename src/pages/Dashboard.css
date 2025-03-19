@@ -27,6 +27,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    position: fixed;
 }
 
 .dashMenu img {
@@ -111,7 +112,13 @@ tbody td {
 }
 
 
-.homeBanner, .homeAbout, .homeServices {
+.homeBanner, 
+.homeAbout, 
+.homeServices,
+.aboutAbout,
+.aboutBanner,
+.servicesBanner ,
+.servicesGalery {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adds spacing between input fields */
@@ -124,7 +131,13 @@ tbody td {
     margin: auto;
   }
   
-  .homeBanner input, .homeAbout input, .homeServices input{
+  .homeBanner input, 
+  .homeAbout input, 
+  .homeServices input,
+  .aboutAbout input,
+  .aboutBanner input,
+  .servicesBanner input,
+  .servicesGalery input{
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -132,10 +145,109 @@ tbody td {
     font-size: 14px;
   }
   
-  .homeBanner input:focus, .homeAbout input:focus, .homeServices input:focus {
+  .homeBanner input:focus, 
+  .homeAbout input:focus, 
+  .homeServices input:focus ,
+  .aboutAbout input:focus,
+  .aboutBanner input:focus,
+  .servicesBanner input:focus,
+  .servicesGalery input:focus{
     border-color: #007bff;
     outline: none;
   }
   .row{
     margin-bottom: 50px;
   }
+
+
+  .feedback {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.row {
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.feedback h2 {
+    font-size: 16px;
+    color: #555;
+}
+
+.card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.noFeedback {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.postsGalery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h1 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+#addButton {
+    height: 50px;
+    align-self: self-end;
+}

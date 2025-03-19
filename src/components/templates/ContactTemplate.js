@@ -5,39 +5,42 @@ import IconContact from '../../json/Contact/IconContact.json'
 import Image from '../atoms/Image'
 import Heading from '../atoms/Heading';
 import Desc from '../atoms/Desc';
-import ContactFormJson from '../../json/Contact/Contact.json'
-import Button from '../atoms/Button';
-import Input from '../atoms/Input';
 
 function ContactTemplate() {
     let [contactBanner, setContactBanner] = useState([]);
     let [contactContacts, setContactContacts] = useState([])
-    let [contactForm, setContactForm] = useState([])
+    let [contactForm, setContactForm] = useState(() => {
+        const savedForm = localStorage.getItem("ContactForm");
+        return savedForm ? JSON.parse(savedForm) : [];  
+    });
+    
   
     useEffect(() => {
-      let banner = localStorage.getItem("ContactBanner");
-      let contact = localStorage.getItem("ContactContact");
-      let form = localStorage.getItem("ContactForm");
-      
-      if (banner == null) {
-          localStorage.setItem("ContactBanner", JSON.stringify(ContactBanner))
-      } else {
-          setContactBanner(JSON.parse(banner));
-      }
-
-    if (contact == null) {
-        localStorage.setItem("ContactContact", JSON.stringify(IconContact))
-    } else {
-        setContactContacts(JSON.parse(contact));
-    }
+        let banner = localStorage.getItem("ContactBanner");
+        let contact = localStorage.getItem("ContactContact");
+        let form = localStorage.getItem("ContactForm");
+        
+        if (!banner) {
+            localStorage.setItem("ContactBanner", JSON.stringify(ContactBanner));
+            setContactBanner(ContactBanner);
+        } else {
+            setContactBanner(JSON.parse(banner));
+        }
     
-    if (form == null) {
-        localStorage.setItem("ContactForm", JSON.stringify(ContactFormJson))
-    } else {
-        setContactForm(JSON.parse(form));
-    }
-      
-  }, [])
+        if (!contact) {
+            localStorage.setItem("ContactContact", JSON.stringify(IconContact));
+            setContactContacts(IconContact);
+        } else {
+            setContactContacts(JSON.parse(contact));
+        }
+        
+        if (!form) {
+            localStorage.setItem("ContactForm", JSON.stringify([])); 
+        } else {
+            setContactForm(JSON.parse(form));
+        }
+    }, []);
+    
   return (
     <div>
       {
@@ -66,29 +69,65 @@ function ContactTemplate() {
     </div>
 
     <div className='form'>
-    {contactForm.map((gal, index) => (
-        <div className='formation' key={index}>
-            <div className='box'>
-            {gal.form.map((list, i) => {
-                return <Input 
-                    key={i}
-                    type={list.type} 
-                    name={list.name}
-                    placeholder={list.placeholder}
-                />
-            })}
-            </div>
-            <textarea 
-                name={gal.textName} 
-                cols='13' 
-                rows='7'
-                placeholder={gal.textPlaceholder}>
-                    
-                </textarea>
-            <Button child={gal.buttonText} />
+    <div className='formation'>
+        <div className='box'>
+            <input 
+                type="text" 
+                name="name"
+                placeholder="Name"
+                id="name"
+            />
+            <input 
+                type="text" 
+                name="subject"
+                placeholder="Subject"
+                id="subject"
+            />
+            <input 
+                type="text" 
+                name="phone"
+                placeholder="Phone"
+                id="phone"
+            />
+            <input 
+                type="email" 
+                name="email"
+                placeholder="Email"
+                id="email"
+            />
         </div>
-    ))}
+        <textarea 
+            name="textbox" 
+            cols="13" 
+            rows="7"
+            placeholder="Message"
+            id="message"
+        ></textarea>
+        <button onClick={() => {
+            // Get input values correctly
+            const name = document.getElementById("name").value;
+            const subject = document.getElementById("subject").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            
+            // Ensure new feedback is added to the existing array
+            const newFeedback = [...contactForm, { name, subject, phone, email, message }];
+        
+            // Update state and localStorage
+            setContactForm(newFeedback);
+            localStorage.setItem("ContactForm", JSON.stringify(newFeedback));
+
+            // Clear input fields after submission
+            document.getElementById("name").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+        }}> Submit</button>
     </div>
+</div>
+
 
 
     </div>

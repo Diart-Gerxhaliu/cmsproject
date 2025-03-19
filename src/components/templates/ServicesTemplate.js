@@ -50,16 +50,6 @@ function ServicesTemplate() {
             })
         }
         </div>
-        <div className='row '>
-        {
-            servicesGalery.map((gal,index)=>{
-                return <div key={index} className='galery'>
-                    <Image src={gal.galery} alt={""}/>
-                    <Heading child={gal.text}/>
-                </div>
-            })
-        }
-        </div>
         </div>
     </div>
   )

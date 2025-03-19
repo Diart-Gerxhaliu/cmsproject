@@ -14,10 +14,10 @@
     width: 300px;
     height: 325px;
     position: relative;
+    margin-bottom: 50px;
 }
 .services .imagesGalery{
     width: 1000px;
-    height: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
