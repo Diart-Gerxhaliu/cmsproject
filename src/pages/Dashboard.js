@@ -613,7 +613,7 @@ function Dashboard() {
                 </div>
               ))
             ) : (
-              <p className="noFeedback">No one said shi</p>
+              <p className="noFeedback">No one said anything</p>
             )}
           </div>
         )}

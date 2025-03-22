@@ -12,9 +12,10 @@
     align-items: center;
     width: 40%;
   }
-  
   .home .list img{
     width: 20px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   .aboutList .list{
     display: flex;

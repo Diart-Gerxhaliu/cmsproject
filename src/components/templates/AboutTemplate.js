@@ -60,8 +60,6 @@ return (
       })}
     </div>
   )
-    
-  
 }
 
 export default AboutTemplate
