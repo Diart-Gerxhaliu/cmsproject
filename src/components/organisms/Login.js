@@ -4,9 +4,9 @@ function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  function submitForm() {
+  function submitForm(e) {
     if (name === "admin" && password === "admin") {
-      alert("Welcome, Admin!");
+      window.location.href='/admin/dashboard'
       localStorage.setItem("admin", true);
     } else {
       alert("Invalid credentials");
@@ -28,6 +28,7 @@ function Login() {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        
       />
       <button type="button" onClick={submitForm}>
         Submit
