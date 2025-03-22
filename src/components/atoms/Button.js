@@ -4,6 +4,8 @@ function Button({child}) {
   return (
     <div>
       <button type='button'>{child}</button>
+      <button type='button'>{child}</button>
+      <button type='button'>{child}</button>
     </div>
   )
 }
