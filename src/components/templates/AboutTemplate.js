@@ -1,65 +1,84 @@
-import React, { useEffect, useState } from 'react'
-import Banner from '../organisms/Banner';
-import Image from '../atoms/Image';
-import Heading from '../atoms/Heading';
-import Desc from '../atoms/Desc';
-import List from '../molecules/List';
-import Button from '../atoms/Button';
-import BannerJson from '../../json/About/Banner.json';
-import AboutJson from '../../json/About/About.json';
+import React, { useState, useEffect } from "react";
+import aboutJson from "../../json/About/AboutData.json";
+import "./AboutTemplate.css";
 
-function AboutTemplate() {
-    
-    let [ban, setBan] = useState([]);
-  let [abo, setAbo] = useState([]);
-    
+const About = () => {
+  const [aboutData, setAboutData] = useState(null);
 
   useEffect(() => {
-    let banner = localStorage.getItem("AboutBanner");
-    let aboutAbout = localStorage.getItem("AboutAbout");
-
-    if (banner == null) {
-        localStorage.setItem("AboutBanner", JSON.stringify(BannerJson))
-    } else {
-        setBan(JSON.parse(banner));
+    let storedData = localStorage.getItem("aboutData");
+    if (!storedData) {
+      localStorage.setItem("aboutData", JSON.stringify(aboutJson));
+      storedData = JSON.stringify(aboutJson);
     }
-    
-    if(aboutAbout == null) {
-        localStorage.setItem("AboutAbout", JSON.stringify(AboutJson))
-    } else{
-        setAbo(JSON.parse(aboutAbout))
-    }
-}, [])
 
-return (
-  <div>
-    {ban.map((gal, index) => {
-      return <Banner
-        backImage={gal.imageBack}
-        h1={gal.bannerHead}
-        p={gal.bannerDesc}
-        button1={gal.bannerButton1}
-        button2={gal.bannerButton2}
-        key={index}
-      />
-    })}
-    {abo.map((gal, index) => {
-      return <div className='about' key={index}>
-        <div className='left'>
-          <Image src={gal.aboutImage} />
-        </div>
-        <div className='right row'>
-          <Heading child={gal.aboutHead} />
-          <Desc child={gal.aboutDesc} />
-            <div className='aboutList'>
-              <List mapped={gal.aboutList} />
-            </div>
-            <Button child={gal.buttonDesc}/>
+    setAboutData(JSON.parse(storedData));
+  }, []);
+
+  if (!aboutData) return <p>Loading...</p>;
+
+  return (
+    <div className="about-page">
+      {/* Preload banner image */}
+      <link rel="preload" href={aboutData.banner.image} as="image" />
+
+      <div className="about-banner-image">
+        <img
+          src={aboutData.banner.image}
+          alt="Ziptech Banner"
+          className="banner-img"
+          loading="lazy"
+          onLoad={(e) => e.target.classList.add("loaded")}
+        />
+        <div className="banner-text">
+          <h1>{aboutData.banner.heading}</h1>
+          <p>{aboutData.banner.subheading}</p>
         </div>
       </div>
-      })}
-    </div>
-  )
-}
 
-export default AboutTemplate
+      <div className="about-section">
+        <h2>{aboutData.vision.title}</h2>
+        <p>{aboutData.vision.description}</p>
+      </div>
+
+      <div className="about-section">
+        <div className="baba">
+          <h2>{aboutData.services.title}</h2>
+          <ul>
+            {aboutData.services.list.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <img src={aboutData.services.image} alt="about" />
+      </div>
+
+      <div className="about-section">
+        <div className="baba">
+          <h2>{aboutData.reasons.title}</h2>
+          <ul>
+            {aboutData.reasons.list.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <img src={aboutData.reasons.image} alt="reasons" />
+      </div>
+
+      <div className="about-section">
+        <h2>{aboutData.commitment.title}</h2>
+        <p>{aboutData.commitment.description}</p>
+      </div>
+
+      <div className="about-cta">
+        <h2>{aboutData.cta.title}</h2>
+        <p>{aboutData.cta.description}</p>
+        <a href={aboutData.cta.buttonLink} className="contact-button">
+          {aboutData.cta.buttonText}
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default About;
