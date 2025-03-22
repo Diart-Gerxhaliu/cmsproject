@@ -33,7 +33,7 @@ function Dashboard() {
   }
 
   if (!admin) {
-    return <h1>You haven't logged in</h1>;
+    window.location.href='/admin/login'
   }
   return (
     <div
@@ -174,6 +174,7 @@ function Dashboard() {
             </div>
           </div>
         )}
+
         {data === "settings" && (
           <div className="settings">
             {dark ? (
@@ -187,7 +188,6 @@ function Dashboard() {
             )}
           </div>
         )}
-       
 
         {data === "pages" && (
               <>
@@ -595,6 +595,7 @@ function Dashboard() {
                     
                   </>
                 )}
+                
               </>
         )}
 
