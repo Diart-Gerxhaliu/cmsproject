@@ -132,7 +132,7 @@ button:hover {
     height: 400px;
   }
 }
-.footer{
+.footer {
   width: 100%;
   background-color: black;
   margin: 0;
@@ -140,7 +140,6 @@ button:hover {
   padding: 25px;
 }
 
-<<<<<<< HEAD
 .footer {
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
@@ -567,13 +566,6 @@ button:hover {
 }
 .footer-39201 .social li a:hover {
   color: #614ad3;
-=======
-.footer img{
-  width: 75px;
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px;
->>>>>>> ce33c1513c0028bdf2a2b79855764fb61c7ed6c5
 }
 
 .admin {
