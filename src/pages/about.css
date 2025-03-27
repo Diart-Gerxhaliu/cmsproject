@@ -1,9 +1,11 @@
+<<<<<<< HEAD
+=======
 .about .banner .row div:last-child button {
     display: none;
 }
 
 .about .banner .row button{
-    margin-left: 70%;
+    margin-left: 50%;
     transform: translate(-50%,-50%);
     width: 125px;
 }
@@ -42,3 +44,4 @@
     align-items: center;
     justify-content: center;
 }
+>>>>>>> ce33c1513c0028bdf2a2b79855764fb61c7ed6c5

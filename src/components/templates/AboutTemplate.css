@@ -1,0 +1,282 @@
+/* about-template.css */
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Banner Section */
+.about-banner-image {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Adjust height for a more prominent look */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(50%);
+  transition: transform 1s ease;
+}
+
+.about-banner-image:hover img {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the text horizontally */
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 80%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  text-align: center; /* Centers the text inside the box */
+  box-sizing: border-box; /* Ensures padding doesn't affect the width calculation */
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* About Section Styling */
+.about-section {
+  max-width: 1200px;
+  padding: 80px 30px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+
+  flex-wrap: wrap;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 8%;
+  margin-top: 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.about-section h2 {
+  font-size: 2.2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.about-section p {
+  font-size: 1.125rem;
+  margin-bottom: 40px;
+  color: #555;
+  font-weight: 400;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+ul li {
+  font-size: 1.125rem;
+  margin-bottom: 15px;
+  text-align: left;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  color: #007bff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.6rem;
+}
+
+.about-section img {
+  padding: 10px;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(90%);
+}
+
+.baba {
+  padding: 10px;
+  width: 50%;
+}
+
+/* Call-to-Action Section */
+.about-cta {
+  background-color: #007bff;
+  color: white;
+  padding: 80px 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.about-cta p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.contact-button {
+  background-color: white;
+  color: #007bff;
+  padding: 15px 35px;
+  font-size: 1.125rem;
+  text-decoration: none;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .about-banner-image {
+    height: 400px;
+  }
+
+  .banner-text {
+    font-size: 2.2rem;
+    padding: 15px 25px;
+    left: 20%;
+    bottom: 25%;
+  }
+
+  .about-section {
+    padding: 60px 20px;
+    margin-left: 10px;
+  }
+
+  .about-section img {
+    width: 50%;
+    height: auto;
+  }
+
+  .about-cta h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-cta p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-banner-image {
+    height: 300px;
+  }
+
+  .banner-text {
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    left: 15%;
+    bottom: 20%;
+  }
+
+  .about-section {
+    padding: 50px 10px;
+  }
+
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-section p {
+    font-size: 1.1rem;
+  }
+
+  .about-cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-banner-image {
+    height: 250px;
+  }
+
+  .banner-text {
+    font-size: 1.5rem;
+    padding: 8px 18px;
+    left: 10%;
+    bottom: 15%;
+  }
+
+  .about-section {
+    padding: 40px 10px;
+  }
+
+  .about-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .about-cta h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
