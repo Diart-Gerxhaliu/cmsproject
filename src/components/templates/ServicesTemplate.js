@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { FaCode, FaUsers, FaLayerGroup } from "react-icons/fa";
 import "./ServicesTemplate.css";
 import ServiceData from "../../json/Service/ServiceData.json";
 import Banner from "../organisms/Banner";
 import bannerImage from "../../assets/backimg.jpg";
 import ServiceImage from "../../assets/ServiceImage.jpg";
-
 
 
 const ServiceTemplate = () => {
@@ -40,7 +38,7 @@ const ServiceTemplate = () => {
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={index} className="service-card">
-              <div className="icon-container">{icons[service.icon]}</div>
+              <div className="icon-container">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <button className="more-button">MORE</button>
@@ -51,5 +49,6 @@ const ServiceTemplate = () => {
     </div>
   );
 };
+
 
 export default ServiceTemplate;

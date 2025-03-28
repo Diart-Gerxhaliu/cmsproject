@@ -2,34 +2,37 @@ import React, {useEffect, useState } from "react";
 import "./Dashboard.css";
 
 function Dashboard() {
-  // States of this page
+  // * States of this page
   const [selectedMenu, setSelectedMenu] = useState("Dashboard");
   const [data, setData] = useState("dash");
   const [dark, setDark] = useState(false);
   let admin = useState(JSON.parse(localStorage.getItem("admin")));
   const [page, setPage] = useState("Home");
-  const [style, setStyle] = useState("Home");
+  const [style, setStyle] = useState("General");
 
-  // home page localStorage import
+  //! Content
+  //* home page localStorage import
   let [homeBanner, setHomeBanner] = useState(JSON.parse(localStorage.getItem("HomeBanner"))||[]);
   let [homeAbout, setHomeAbout] = useState(JSON.parse(localStorage.getItem("HomeAbout"))||[]);
   let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
   
-  // about page localStorage import
+  //* about page localStorage import
   let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner"))||[]);
   let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout"))||[]); 
 
-  // services page localStorage import
+  //* services page localStorage import
   let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
   let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery"))||[]); 
 
 
-  // feedback page localStorage import
+  //* feedback page localStorage import
   let feedback = JSON.parse(localStorage.getItem("ContactForm"));
 
-  
+  //* logo import
   let LG = JSON.parse(localStorage.getItem("Logo"));
 
+  //! Style
+  //*Menu
 
 
   useEffect(() => {
@@ -99,7 +102,7 @@ function Dashboard() {
           <h1
             onClick={() => {
               setSelectedMenu("Style");
-              setData("Style");
+              setData("style");
             }}
           >
             Style
@@ -208,7 +211,30 @@ function Dashboard() {
 
         {data === "style" && (
           <div className='style'>
+            <div className='row'>
+                  <button 
+                    type='button'
+                    onClick={() => setStyle("General")}
+                  >General</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("Home")}
+                  >Home</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("About")}
+                  >About</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("Services")}
+                  >Services</button>
+            </div>
+            {style === "General" && (
+              <div className='general'>
 
+
+              </div>
+            )}
           </div>
         )}
         
