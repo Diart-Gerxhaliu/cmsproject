@@ -6,31 +6,7 @@ import Banner from "../organisms/Banner";
 import bannerImage from "../../assets/backimg.jpg";
 import ServiceImage from "../../assets/ServiceImage.jpg";
 
-function ServicesTemplate() {
-    let [servicesBanner, setServicesBanner] = useState([]);
-    let [servicesGalery, setServicesGalery] = useState([]);
-  
-    useEffect(() => {
-      let banner = localStorage.getItem("ServicesBanner");
-      let galery = localStorage.getItem("ServicesGalery");
-  
-      if (banner == null) {
-          localStorage.setItem("ServicesBanner", JSON.stringify(BannerJson))
-      } else {
-          setServicesBanner(JSON.parse(banner));
-      }
-      
-      if(galery == null) {
-          localStorage.setItem("ServicesGalery", JSON.stringify(GaleryJson))
-      } else{
-          setServicesGalery(JSON.parse(galery))
-      }
-  }, [])
-const icons = {
-  code: <FaCode className="icon" />,
-  users: <FaUsers className="icon" />,
-  layers: <FaLayerGroup className="icon" />,
-};
+
 
 const ServiceTemplate = () => {
   const [services] = useState(ServiceData);
