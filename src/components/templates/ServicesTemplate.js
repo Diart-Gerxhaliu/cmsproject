@@ -6,7 +6,6 @@ import Image from '../atoms/Image';
 import Heading from '../atoms/Heading';
 
 function ServicesTemplate() {
-
     let [servicesBanner, setServicesBanner] = useState([]);
     let [servicesGalery, setServicesGalery] = useState([]);
   

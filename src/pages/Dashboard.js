@@ -2,26 +2,34 @@ import React, {useEffect, useState } from "react";
 import "./Dashboard.css";
 
 function Dashboard() {
+  // States of this page
   const [selectedMenu, setSelectedMenu] = useState("Dashboard");
   const [data, setData] = useState("dash");
   const [dark, setDark] = useState(false);
-  const [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("admin"))||false);
+  let admin = useState(JSON.parse(localStorage.getItem("admin")));
   const [page, setPage] = useState("Home");
+  const [style, setStyle] = useState("Home");
 
+  // home page localStorage import
   let [homeBanner, setHomeBanner] = useState(JSON.parse(localStorage.getItem("HomeBanner"))||[]);
   let [homeAbout, setHomeAbout] = useState(JSON.parse(localStorage.getItem("HomeAbout"))||[]);
   let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
   
+  // about page localStorage import
   let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner"))||[]);
   let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout"))||[]); 
 
+  // services page localStorage import
   let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
   let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery"))||[]); 
 
 
-  let [feedback, setFeedback] = useState(JSON.parse(localStorage.getItem("ContactForm")||[]));
+  // feedback page localStorage import
+  let feedback = JSON.parse(localStorage.getItem("ContactForm"));
 
+  
   let LG = JSON.parse(localStorage.getItem("Logo"));
+
 
 
   useEffect(() => {
@@ -30,11 +38,15 @@ function Dashboard() {
 
   if (dark) {
     document.body.style.background= "black";
+  }else{
+    document.body.style.background= "white";
+    
   }
 
   if (!admin) {
     window.location.href='/admin/login'
   }
+
   return (
     <div
       className="dashboard"
@@ -86,6 +98,14 @@ function Dashboard() {
           </h1>
           <h1
             onClick={() => {
+              setSelectedMenu("Style");
+              setData("Style");
+            }}
+          >
+            Style
+          </h1>
+          <h1
+            onClick={() => {
               setSelectedMenu("Feedback");
               setData("feedback");
             }}
@@ -94,10 +114,7 @@ function Dashboard() {
           </h1>
         </div>
         <div className="group">
-          <h1 onClick={() => {
-            setSelectedMenu("Users");
-            setData("users")
-            }}>Users</h1>
+          
           <h1
             onClick={() => {
               setSelectedMenu("Settings");
@@ -148,16 +165,16 @@ function Dashboard() {
 
             <div>
               <h2 className="elementTitle">Last Upload</h2>
-              <div className="tableWrapper" style={
-          dark
-            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-        }>
+              <div className="tableWrapper" 
+              style={dark
+                ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+              }>
                 <table style={
-          dark
-            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-        }>
+                  dark
+                    ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                    : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                  }>
                   <thead>
                     <tr>
                       <th colSpan="2">Last Upload</th>
@@ -188,6 +205,13 @@ function Dashboard() {
             )}
           </div>
         )}
+
+        {data === "style" && (
+          <div className='style'>
+
+          </div>
+        )}
+        
 
         {data === "pages" && (
               <>
@@ -619,9 +643,6 @@ function Dashboard() {
           </div>
         )}
 
-        {data === "users" && (
-          ""
-        )}
 
         {data === "posts" && (
           <div className='posts'>
