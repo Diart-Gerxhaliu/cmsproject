@@ -1,17 +1,16 @@
 [
     {
-        "head": "We Offer Exclusive IT Services",
         "card": [
             {
-                "image": "https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "image": "/image1.jpg",
                 "comp": "HTML"
             },
             {
-                "image": "https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "image": "/image2.jpg",
                 "comp": "CSS"
             },
             {
-                "image": "https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "image": "/image3.jpg",
                 "comp": "Java Script"
             }
         ]

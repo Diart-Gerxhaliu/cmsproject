@@ -2,6 +2,7 @@ import React from 'react'
 import Heading from '../atoms/Heading'
 import Desc from '../atoms/Desc'
 import Button from '../atoms/Button'
+
 function HeDe2Bu({
   h1,
   p,
