@@ -8,14 +8,14 @@
         "bannerButton2": "Read More"
     },
     {
-        "imageBack": "https://www.pexels.com/photo/green-leafed-plants-380768/",
+        "imageBack": "/office.jpg",
         "bannerHead": "Innovative Digital Solutions",
         "bannerDesc": "Bringing cutting-edge digital solutions to improve business efficiency and productivity.",
         "bannerButton1": "Get Started",
         "bannerButton2": "Learn More"
     },
     {
-        "imageBack": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
+        "imageBack": "/image1.jpg",
         "bannerHead": "Your Trusted IT Partner",
         "bannerDesc": "Reliable and secure IT services tailored to your business needs.",
         "bannerButton1": "Consult Now",
