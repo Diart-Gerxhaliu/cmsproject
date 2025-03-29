@@ -38,9 +38,6 @@ function HomeTemplate() {
         } else{
             setSrv(JSON.parse(services))
         }
-    }, []);
-
-    useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % ban.length);
         }, 3000); 
