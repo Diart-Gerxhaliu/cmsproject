@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import Image from '../atoms/Image'
 import NavBar from '../molecules/NavBar'
@@ -57,34 +56,6 @@ function Menu() {
         <NavBar navlist={lN}/>
     </div>
   )
-=======
-import React, { useEffect, useState } from 'react';
-import Image from '../atoms/Image'; 
-import NavBar from '../molecules/NavBar';
-import Navcomps from '../../json/Menu.json'; 
-import Logo from '../../json/Logo.json'; 
-
-function Menu() {
-    useEffect(() => {
-        localStorage.setItem("Logo", JSON.stringify(Logo));
-        
-        localStorage.setItem("Navbar", JSON.stringify(Navcomps));
-    }, []); 
-    let LG = JSON.parse(localStorage.getItem("Logo"));
-    let LN = JSON.parse(localStorage.getItem("Navbar"));
-
-    const logoImage = LG && LG[0]?.image ? LG[0].image : '';
-    console.log(logoImage);
-    
-
-    return (
-        <div className='menu'>
-            {logoImage && <Image src={logoImage} alt="logo" />}
-            
-            <NavBar navlist={LN} />
-        </div>
-    );
->>>>>>> 66e4945 (so many changes)
 }
 
 export default Menu;

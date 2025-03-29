@@ -16,6 +16,7 @@ function Banner({
       useEffect(() => {
         let style = {
           height: "600px",
+          
         }
   
         let styleLS = localStorage.getItem("BannerStyle"); 

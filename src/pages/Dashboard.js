@@ -335,12 +335,28 @@ function Dashboard() {
                         }}
                       />
                     </div>
+                    <div>
+                      <h3>Height</h3>
+                      <input 
+                        type="text"
+                        name="change"
+                        value={bannerStyle.height}
+                        onChange={(e) => {
+                          const newStyle = {...bannerStyle};
+                          newStyle.height = e.target.value;
+                          setBannerStyle(newStyle);  
+                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
+                        }}
+                      />
+                    </div>
                 </div>
                     
               </div>
             )}
 
-            {style === "Home"}
+            {style === "Menu"&&(
+              <div></div>
+            )}
 
 
           </div>
