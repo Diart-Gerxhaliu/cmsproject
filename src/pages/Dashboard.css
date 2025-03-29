@@ -256,3 +256,52 @@ tbody td {
     height: 50px;
     align-self: self-end;
 }
+
+/*Styles Span*/
+.stylesSpan {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    width: 600px; /* Increased width for a wider layout */
+    margin: 50px auto; /* Centers it horizontally */
+    text-align: center;
+  }
+  
+  .stylesSpan h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .stylesSpan div {
+    display: flex;
+    justify-content: space-between; /* Spreads the text and input */
+    align-items: center;
+    width: 100%; /* Ensures the div stretches */
+  }
+  
+  .stylesSpan h3 {
+    font-size: 18px;
+    margin: 0;
+    flex: 1; /* Makes sure text doesn't shrink */
+    text-align: left; /* Aligns labels to the left */
+  }
+  
+  .stylesSpan input {
+    flex: 2; /* Makes inputs take more space */
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .stylesSpan input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  

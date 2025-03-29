@@ -22,13 +22,28 @@ function App() {
 function MainContent() {
   const location = useLocation();
   const [showMenuFooter, setShowMenuFooter] = useState(true);
+  
+  let [bodyStyle, setBodyStyle] = useState({})
 
   useEffect(() => {
+
+    let style = {
+      fontFamily: "Arial, sans-serif",
+      textAlign: "center"
+    }
+    let styleLS = localStorage.getItem("BodyStyle"); 
+        
+        if(styleLS==null){
+          localStorage.setItem("BodyStyle", JSON.stringify(style))
+        } else {
+            setBodyStyle(JSON.parse(styleLS));
+        }
+
     setShowMenuFooter(!['/admin', '/admin/login', '/admin/dashboard'].includes(location.pathname));
   }, [location.pathname]);
 
   return (
-    <div className="App">
+    <div className="App" style={bodyStyle}>
       {showMenuFooter && <Menu />}
       <Routes>
         <Route path="/" element={<Home />} />

@@ -10,14 +10,16 @@ function Menu() {
     let [lN, setLN] = useState([]);
     let[menuStyle, setMenuStyle]= useState({})
 
-    let style = {
-      height: "90px",
-      padding: "15px 50px",
-      justifyContent: "space-between"
-
-    }
+    
   
     useEffect(() => {
+      let style = {
+        height: "90px",
+        padding: "15px 50px",
+        justifyContent: "space-between"
+  
+      }
+
       let styleLS = localStorage.getItem("MenuStyle"); 
       let logo = localStorage.getItem("Logo");
       let comps = localStorage.getItem("Navbar");
