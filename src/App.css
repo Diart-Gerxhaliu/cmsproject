@@ -67,7 +67,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top: 80px;
+  margin-top: 170px;
 }
 
 /* Overlay Effect */
@@ -132,7 +132,7 @@ button:hover {
     height: 400px;
   }
 }
-.footer{
+.footer {
   width: 100%;
   background-color: black;
   margin: 0;

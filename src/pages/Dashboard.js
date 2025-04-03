@@ -227,6 +227,151 @@ function Dashboard() {
           </div>
         )}
 
+        {data === "style" && (
+          <div className='style'>
+            <div className='row'>
+                  <button 
+                    type='button'
+                    onClick={() => setStyle("General")}
+                  >General</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("Home")}
+                  >Home</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("About")}
+                  >About</button>
+                  <button 
+                    type='button'
+                    onClick={() => setPage("Services")}
+                  >Services</button>
+            </div>
+            {style === "General" && (
+              <div className='general'>
+
+                <div className='bodyGeneral stylesSpan'>
+                  <h1>Body</h1>
+                    <div>
+                      <h3>Font Family</h3>
+                      <input 
+                        type="text"
+                        name="change"
+                        value={bodyStyle.fontFamily}
+                        onChange={(e) => {
+                          const newStyle = {...bodyStyle};
+                          newStyle.fontFamily = e.target.value;
+                          setBodyStyle(newStyle);  
+                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <h3>Text Align</h3>
+                      <input 
+                        type="text"
+                        name="change"
+                        value={bodyStyle.textAlign}
+                        onChange={(e) => {
+                          const newStyle = {...bodyStyle};
+                          newStyle.textAlign = e.target.value;
+                          setBodyStyle(newStyle);  
+                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
+                        }}
+                      />
+                    </div>
+                </div>
+                
+                <div className='menuGeneral stylesSpan'>
+                  <h1>Menu</h1>
+                  <div>
+                    <h3>Height</h3>
+                    <input 
+                      type="text"
+                      name="change"
+                      value={menuStyle.height}
+                      onChange={(e) => {
+                        const newStyle = {...menuStyle};
+                        newStyle.height = e.target.value;
+                        setMenuStyle(newStyle);  
+                        localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3>Justify Content</h3>
+                    <input 
+                    type="text"
+                    name="change"
+                    value={menuStyle.justifyContent}
+                    onChange={(e) => {
+                      const newStyle = {...menuStyle};
+                      newStyle.justifyContent = e.target.value;
+                      setMenuStyle(newStyle);  
+                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
+                    }}
+                  />
+                  </div>
+                  <div>
+                    <h3>Padding</h3>
+                  <input 
+                    type="text"
+                    name="change"
+                    value={menuStyle.padding}
+                    onChange={(e) => {
+                      const newStyle = {...menuStyle};
+                      newStyle.padding = e.target.value;
+                      setMenuStyle(newStyle);  
+                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
+                    }}
+                  />
+                  </div>
+                </div>
+
+                <div className='bannerGeneral stylesSpan'>
+                    <h1>Banner</h1>
+                    <div>
+                      <h3>Height</h3>
+                      <input 
+                        type="text"
+                        name="change"
+                        value={bannerStyle.height}
+                        onChange={(e) => {
+                          const newStyle = {...bannerStyle};
+                          newStyle.height = e.target.value;
+                          setBannerStyle(newStyle);  
+                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <h3>Height</h3>
+                      <input 
+                        type="text"
+                        name="change"
+                        value={bannerStyle.height}
+                        onChange={(e) => {
+                          const newStyle = {...bannerStyle};
+                          newStyle.height = e.target.value;
+                          setBannerStyle(newStyle);  
+                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
+                        }}
+                      />
+                    </div>
+                </div>
+                    
+              </div>
+            )}
+
+            {style === "Menu"&&(
+              <div></div>
+            )}
+
+
+          </div>
+        )}
+        
+
         {data === "pages" && (
               <>
                 <div className='row'>
