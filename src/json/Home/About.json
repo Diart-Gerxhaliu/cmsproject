@@ -1,34 +1,31 @@
 [
     {
-        "aboutImage": "/office2.jpg",
-        "aboutHead": "The Best IT Solutions",
-        "aboutHeadd": "\"Empowering content, simplifying management—your vision, seamlessly delivered.\"",
+        "aboutImage": "https://images.pexels.com/photos/1181395/pexels-photo-1181395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "aboutHead": "We Provide the best IT Solutions services",
         "aboutDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad earum autem laboriosam asperiores dignissimos at tempore",
-        "aboutImagee": "/office.jpg",
-
         "aboutList": [
             {   
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"business applications through"
             },
             {
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"procedures whereas processes"
             },
             {
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"business applications through"
             },
             {
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"revolutionary catalysts for chang"
             },
             {
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"catalysts for chang the Seamlessly"
             },
             {
-                "image":"/check.svg",
+                "image":"https://www.svgrepo.com/show/491588/checkmark-circle.svg",
                 "comp":"business applications through"
             }
         ],

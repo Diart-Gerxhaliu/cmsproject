@@ -1,14 +1,9 @@
-
+/* Reset default margins and paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-.row{
-    
-    gap: 5px;
-    margin-bottom: 50px;
 }
 .dashboard {
     display: flex;
@@ -17,7 +12,7 @@
     margin-top: -3vh;
     
 }
-/*Menus*/
+
 .dashMenu {
     width: 100%;
     background-color: #333;
@@ -68,13 +63,12 @@
     color: white;
     border-radius: 5px;
 }
-/*End of the 2 Menus*/
-/*The Part where the stuff changes*/
+
 .main {
     margin-left: 250px;
     padding: 20px;
     flex-grow: 1;
-    margin-top: 100px;
+    margin-top: 25px;
 }
 
 .mainTitle {
@@ -82,7 +76,7 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
-/*Dashboard inside the Main Div*/
+
 .elementTitle {
     font-size: 20px;
     font-weight: bold;
@@ -115,10 +109,6 @@ thead th {
 tbody td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
-}
-/*Pages inside Main Div*/
-.main:first-child(){
-    margin-bottom: 100px;
 }
 
 
@@ -165,8 +155,10 @@ tbody td {
     border-color: #007bff;
     outline: none;
   }
-  
-/*Feedback inside Main Div*/
+  .row{
+    margin-bottom: 50px;
+  }
+
 
   .feedback {
     display: flex;
@@ -198,7 +190,10 @@ tbody td {
     margin-bottom: 10px;
 }
 
-
+.row {
+    gap: 5px;
+    margin-bottom: 10px;
+}
 
 .feedback h2 {
     font-size: 16px;
@@ -256,52 +251,3 @@ tbody td {
     height: 50px;
     align-self: self-end;
 }
-
-/*Styles Span*/
-.stylesSpan {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 25px;
-    background-color: #f4f4f4;
-    border-radius: 12px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    width: 600px; /* Increased width for a wider layout */
-    margin: 50px auto; /* Centers it horizontally */
-    text-align: center;
-  }
-  
-  .stylesSpan h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  
-  .stylesSpan div {
-    display: flex;
-    justify-content: space-between; /* Spreads the text and input */
-    align-items: center;
-    width: 100%; /* Ensures the div stretches */
-  }
-  
-  .stylesSpan h3 {
-    font-size: 18px;
-    margin: 0;
-    flex: 1; /* Makes sure text doesn't shrink */
-    text-align: left; /* Aligns labels to the left */
-  }
-  
-  .stylesSpan input {
-    flex: 2; /* Makes inputs take more space */
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .stylesSpan input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-  }
-  

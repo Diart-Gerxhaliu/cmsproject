@@ -1,64 +1,62 @@
 import React, {useEffect, useState } from "react";
 import "./Dashboard.css";
+import HeaderCustomizer from "../components/HeaderCustomizer";
 
 function Dashboard() {
-  // * States of this page
   const [selectedMenu, setSelectedMenu] = useState("Dashboard");
   const [data, setData] = useState("dash");
   const [dark, setDark] = useState(false);
-  let admin = useState(JSON.parse(localStorage.getItem("admin")));
+  const [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("admin")) || false);
   const [page, setPage] = useState("Home");
-  const [style, setStyle] = useState("General");
-
-  //! Content
-  //* home page localStorage import
-  let [homeBanner, setHomeBanner] = useState(JSON.parse(localStorage.getItem("HomeBanner"))||[]);
-  let [homeAbout, setHomeAbout] = useState(JSON.parse(localStorage.getItem("HomeAbout"))||[]);
-  let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
-  
-  //* about page localStorage import
-  let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner"))||[]);
-  let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout"))||[]); 
-
-  //* services page localStorage import
-  let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
-  let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery"))||[]); 
-
-
-  //* feedback page localStorage import
-  let feedback = JSON.parse(localStorage.getItem("ContactForm"));
-
-  //* logo import
-  let LG = JSON.parse(localStorage.getItem("Logo"));
-
-  //! Style
-  //*Body
-  let [bodyStyle, setBodyStyle] = useState(JSON.parse(localStorage.getItem("BodyStyle")))
-  //*Menu
-  let [menuStyle, setMenuStyle] = useState(JSON.parse(localStorage.getItem("MenuStyle"))||[]); 
-  //*Banner
-  let [bannerStyle, setBannerStyle] = useState(JSON.parse(localStorage.getItem("BannerStyle"))||[]); 
-
-
-
-  //use Effect
 
   useEffect(() => {
+    const items = [
+      "HomeBanner",
+      "HomeAbout",
+      "HomeServices",
+      "AboutBanner",
+      "AboutAbout",
+      "ServicesBanner",
+      "ServicesGalery",
+      "ContactForm"
+    ];
     
+    items.forEach(item => {
+      if (!localStorage.getItem(item)) {
+        localStorage.setItem(item, JSON.stringify([]));
+      }
+    });
+    
+    if (!localStorage.getItem("Logo")) {
+      localStorage.setItem("Logo", JSON.stringify(null));
+    }
+  }, []);
+
+  let [homeBanner, setHomeBanner] = useState(JSON.parse(localStorage.getItem("HomeBanner") || "[]"));
+  let [homeAbout, setHomeAbout] = useState(JSON.parse(localStorage.getItem("HomeAbout") || "[]"));
+  let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices") || "[]")); 
+  
+  let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner") || "[]"));
+  let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout") || "[]")); 
+
+  let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner") || "[]"));
+  let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery") || "[]")); 
+
+  let [feedback, setFeedback] = useState(JSON.parse(localStorage.getItem("ContactForm") || "[]"));
+
+  let LG = JSON.parse(localStorage.getItem("Logo") || "null");
+
+  useEffect(() => {
     localStorage.setItem("ServicesGalery", JSON.stringify(servicesGalery));
   }, [servicesGalery]);
 
   if (dark) {
     document.body.style.background= "black";
-  }else{
-    document.body.style.background= "white";
-    
   }
 
   if (!admin) {
     window.location.href='/admin/login'
   }
-
   return (
     <div
       className="dashboard"
@@ -110,14 +108,6 @@ function Dashboard() {
           </h1>
           <h1
             onClick={() => {
-              setSelectedMenu("Style");
-              setData("style");
-            }}
-          >
-            Style
-          </h1>
-          <h1
-            onClick={() => {
               setSelectedMenu("Feedback");
               setData("feedback");
             }}
@@ -126,7 +116,18 @@ function Dashboard() {
           </h1>
         </div>
         <div className="group">
-          
+          <h1
+            onClick={() => {
+              setSelectedMenu("Header Style");
+              setData("header");
+            }}
+          >
+            Header Style
+          </h1>
+          <h1 onClick={() => {
+            setSelectedMenu("Users");
+            setData("users")
+            }}>Users</h1>
           <h1
             onClick={() => {
               setSelectedMenu("Settings");
@@ -141,6 +142,14 @@ function Dashboard() {
 
       <div className="main">
         <h2 className="mainTitle">{selectedMenu}</h2>
+
+        {data === "header" && (
+          <div className="customization-section">
+            <h1>Header Customization</h1>
+            <p>Choose from 9 different header styles to customize your website's appearance</p>
+            <HeaderCustomizer />
+          </div>
+        )}
 
         {data === "dash" && (
           <div>
@@ -177,16 +186,16 @@ function Dashboard() {
 
             <div>
               <h2 className="elementTitle">Last Upload</h2>
-              <div className="tableWrapper" 
-              style={dark
-                ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-              }>
+              <div className="tableWrapper" style={
+          dark
+            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+        }>
                 <table style={
-                  dark
-                    ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                    : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-                  }>
+          dark
+            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+        }>
                   <thead>
                     <tr>
                       <th colSpan="2">Last Upload</th>
@@ -217,135 +226,6 @@ function Dashboard() {
             )}
           </div>
         )}
-
-        {data === "style" && (
-          <div className='style'>
-            <div className='row'>
-                  <button 
-                    type='button'
-                    onClick={() => setStyle("General")}
-                  >General</button>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("Home")}
-                  >Home</button>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("About")}
-                  >About</button>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("Services")}
-                  >Services</button>
-            </div>
-            {style === "General" && (
-              <div className='general'>
-
-                <div className='bodyGeneral stylesSpan'>
-                  <h1>Body</h1>
-                    <div>
-                      <h3>Font Family</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bodyStyle.fontFamily}
-                        onChange={(e) => {
-                          const newStyle = {...bodyStyle};
-                          newStyle.fontFamily = e.target.value;
-                          setBodyStyle(newStyle);  
-                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <h3>Text Align</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bodyStyle.textAlign}
-                        onChange={(e) => {
-                          const newStyle = {...bodyStyle};
-                          newStyle.textAlign = e.target.value;
-                          setBodyStyle(newStyle);  
-                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
-                </div>
-                
-                <div className='menuGeneral stylesSpan'>
-                  <h1>Menu</h1>
-                  <div>
-                    <h3>Height</h3>
-                    <input 
-                      type="text"
-                      name="change"
-                      value={menuStyle.height}
-                      onChange={(e) => {
-                        const newStyle = {...menuStyle};
-                        newStyle.height = e.target.value;
-                        setMenuStyle(newStyle);  
-                        localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <h3>Justify Content</h3>
-                    <input 
-                    type="text"
-                    name="change"
-                    value={menuStyle.justifyContent}
-                    onChange={(e) => {
-                      const newStyle = {...menuStyle};
-                      newStyle.justifyContent = e.target.value;
-                      setMenuStyle(newStyle);  
-                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
-                    }}
-                  />
-                  </div>
-                  <div>
-                    <h3>Padding</h3>
-                  <input 
-                    type="text"
-                    name="change"
-                    value={menuStyle.padding}
-                    onChange={(e) => {
-                      const newStyle = {...menuStyle};
-                      newStyle.padding = e.target.value;
-                      setMenuStyle(newStyle);  
-                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
-                    }}
-                  />
-                  </div>
-                </div>
-
-                <div className='bannerGeneral stylesSpan'>
-                    <h1>Banner</h1>
-                    <div>
-                      <h3>Height</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bannerStyle.height}
-                        onChange={(e) => {
-                          const newStyle = {...bannerStyle};
-                          newStyle.height = e.target.value;
-                          setBannerStyle(newStyle);  
-                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
-                </div>
-                    
-              </div>
-            )}
-
-            {style === "Home"}
-
-
-          </div>
-        )}
-        
 
         {data === "pages" && (
               <>
@@ -609,10 +489,10 @@ function Dashboard() {
                         name='change' 
                         value={gal.aboutImage} 
                         onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutImage = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                          const newAboutAbout = [...aboutAbout];
+                          newAboutAbout[index].aboutImage = e.target.value;
+                          setAboutAbout(newAboutAbout);
+                          localStorage.setItem("AboutAbout", JSON.stringify(newAboutAbout))
                         }}/>
                         <input 
                         key={index}
@@ -620,10 +500,10 @@ function Dashboard() {
                         name='change' 
                         value={gal.aboutHead} 
                         onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutHead = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                          const newAboutAbout = [...aboutAbout];
+                          newAboutAbout[index].aboutHead = e.target.value;
+                          setAboutAbout(newAboutAbout);
+                          localStorage.setItem("AboutAbout", JSON.stringify(newAboutAbout))
                         }}/>
                         <input 
                         key={index}
@@ -631,10 +511,10 @@ function Dashboard() {
                         name='change' 
                         value={gal.aboutDesc} 
                         onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutDesc = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                          const newAboutAbout = [...aboutAbout];
+                          newAboutAbout[index].aboutDesc = e.target.value;
+                          setAboutAbout(newAboutAbout);
+                          localStorage.setItem("AboutAbout", JSON.stringify(newAboutAbout))
                         }}/>
                         {gal.aboutList.map((serie,i)=>{
                           return <>
@@ -644,10 +524,10 @@ function Dashboard() {
                               name='change' 
                               value={serie.image} 
                               onChange={(e)=>{
-                                const newAboutBanner = [...aboutBanner];
-                                newAboutBanner[index].image = e.target.value;
-                                setAboutAbout(newAboutBanner);
-                                localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                                const newAboutAbout = [...aboutAbout];
+                                newAboutAbout[index].aboutList[i].image = e.target.value;
+                                setAboutAbout(newAboutAbout);
+                                localStorage.setItem("AboutAbout", JSON.stringify(newAboutAbout))
                               }}/>
                           </>
                         })}
@@ -657,10 +537,10 @@ function Dashboard() {
                         name='change' 
                         value={gal.buttonDesc} 
                         onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].buttonDesc = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                          const newAboutAbout = [...aboutAbout];
+                          newAboutAbout[index].buttonDesc = e.target.value;
+                          setAboutAbout(newAboutAbout);
+                          localStorage.setItem("AboutAbout", JSON.stringify(newAboutAbout))
                         }}/>
                       </div>
                     })
@@ -777,6 +657,9 @@ function Dashboard() {
           </div>
         )}
 
+        {data === "users" && (
+          ""
+        )}
 
         {data === "posts" && (
           <div className='posts'>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import HeDe2Bu from '../molecules/HeDe2Bu'
 
 function Banner({
@@ -8,29 +8,8 @@ function Banner({
     button1,
     button2
 }) {
-
-      let[bannerStyle, setBannerStyle]= useState({})
-  
-      
-    
-      useEffect(() => {
-        let style = {
-          height: "600px",
-        }
-  
-        let styleLS = localStorage.getItem("BannerStyle"); 
-        
-        if(styleLS==null){
-          localStorage.setItem("BannerStyle", JSON.stringify(style))
-        } else {
-            setBannerStyle(JSON.parse(styleLS));
-        }
-  
-        
-    }, [])
-  
   return (
-    <div className='banner' style={{backgroundImage:`url(${backImage})`,bannerStyle}}>
+    <div className='banner' style={{backgroundImage:`url(${backImage})`}}>
       <HeDe2Bu
         h1={h1}
         p={p}

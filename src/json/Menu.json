@@ -1,19 +1,18 @@
 [
-    {
-        "href":"/",
-        "child":"Home"
-    },
-    {
-        "href":"/about",
-        "child":"About"
-    },
-    {
-        "href":"/services",
-        "child":"Services"
-    },
-    {
-        "href":"/contact",
-        "child":"Contact"
-    }
-    
+  {
+    "href": "/",
+    "child": "Home"
+  },
+  {
+    "href": "/about",
+    "child": "About"
+  },
+  {
+    "href": "/services",
+    "child": "Services"
+  },
+  {
+    "href": "/contact",
+    "child": "Contact"
+  }
 ]
